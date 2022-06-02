@@ -13,7 +13,7 @@ inputs:
   display_name:
     description: The display name of the environment
     required: true
-  production:
+  is_production:
     description: Whether or not this environment is a production environment
     required: false
     default: "false"
