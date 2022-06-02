@@ -1,0 +1,43 @@
+name: create-environment-pact-broker
+description: 'This action will create new environment in pact broker'
+author: rajnavakoti
+branding:
+  icon: 'arrow-right-circle'
+  color: 'yellow'
+
+inputs:
+  # Environment details
+  name:
+    description: The uniquely identifying name of the environment as used in deployment code
+    required: true
+  display_name:
+    description: The display name of the environment
+    required: true
+  production:
+    description: Whether or not this environment is a production environment
+    required: false
+    default: "false"
+  contact_name:
+    description: The name of the team/person responsible for this environment
+    required: false
+  contact_email:
+    description: The email address of the team/person responsible for this environment
+    required: false
+
+  # Broker authentication details [either token or username+password needed to be provided]
+  broker_base_url:
+    description: The base URL of the Pact Broker
+    required: true
+  broker_username:
+    description: Pact Broker basic auth username
+    required: false
+  broker_password:
+    description: Pact Broker basic auth password
+    required: false
+  broker_token:
+    description: Pact Broker bearer token
+    required: false
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
